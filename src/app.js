@@ -1,14 +1,23 @@
 import express from "express";
-import dotenv from "dotenv";
+import morgan from "morgan";
+import helmet from "helmet";
+import bodyParser from "body-parser";
+import cors from "cors";
+
+import { routes } from "./routes";
+import authRouter from "./routers/AuthRouter";
+import loginRouter from "./routers/LoginRouter";
+import "./passport";
 
 const app = express();
 
-dotenv.config();
+app.use(cors());
+app.use(helmet());
+app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-const PORT = process.env.PORT;
+app.use(routes.auth, authRouter);
+app.use(routes.login, loginRouter);
 
-app.get("/", (req, res) => {
-  res.send("home");
-});
-
-app.listen(PORT, () => console.log(`✅ server open! ${PORT}`));
+export default app;
