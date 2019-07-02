@@ -1,7 +1,7 @@
 import passport from "passport";
 import kakaoStrategy from "passport-kakao";
 import { routes } from "./routes";
-import User from "./schemas/User";
+import User from "./models/User";
 
 passport.use(User.createStrategy());
 

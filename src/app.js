@@ -6,7 +6,7 @@ import cors from "cors";
 
 import { routes } from "./routes";
 import authRouter from "./routers/AuthRouter";
-import loginRouter from "./routers/LoginRouter";
+import globalRouter from "./routers/globalRouter";
 import "./passport";
 
 const app = express();
@@ -18,6 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(routes.auth, authRouter);
-app.use(routes.login, loginRouter);
+app.use(routes.login, globalRouter);
 
 export default app;

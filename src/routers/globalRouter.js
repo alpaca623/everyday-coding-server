@@ -4,14 +4,14 @@ import { routes } from "../routes";
 import {
   requestKakaoLogin,
   postKakaoLogin
-} from "../controllers/LoginController";
+} from "../controllers/globalController";
 
-const loginRouter = express.Router();
+const globalRouter = express.Router();
 
-loginRouter.get(routes.kakaoAuth, requestKakaoLogin);
-loginRouter.get(
+globalRouter.get(routes.kakaoAuth, requestKakaoLogin);
+globalRouter.get(
   routes.kakaoCallback,
   passport.authenticate("kakao", { failureRedirect: "/" }, postKakaoLogin)
 );
 
-export default loginRouter;
+export default globalRouter;

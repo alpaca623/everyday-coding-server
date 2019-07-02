@@ -1,4 +1,4 @@
-import Auth from "../schemas/Auth";
+import Auth from "../models/Auth";
 
 export const authRequest = async (req, res) => {
   const { auth_type, auth_content } = req.body;
