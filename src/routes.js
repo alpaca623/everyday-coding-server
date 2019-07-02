@@ -1,5 +1,6 @@
 const HOME = "/";
 
+const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
 
@@ -14,6 +15,7 @@ const KAKAO_CALLBACK = "/login/kakao/callback";
 
 export const routes = {
   home: HOME,
+  join: JOIN,
   login: LOGIN,
   logout: LOGOUT,
   today_auth: TODAY_AUTH,
