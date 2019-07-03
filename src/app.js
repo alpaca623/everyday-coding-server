@@ -17,7 +17,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(routes.home, globalRouter);
 app.use(routes.auth, authRouter);
-app.use(routes.login, globalRouter);
 
 export default app;
