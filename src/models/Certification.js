@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const authSchema = mongoose.Schema({
+const certificationSchema = mongoose.Schema({
   auth_type: {
     type: Number,
     default: 0,
@@ -21,6 +21,6 @@ const authSchema = mongoose.Schema({
   }
 });
 
-const model = mongoose.model("auth", authSchema);
+const model = mongoose.model("certification", certificationSchema);
 
 export default model;

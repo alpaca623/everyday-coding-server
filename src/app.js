@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 import { routes } from "./routes";
-import authRouter from "./routers/AuthRouter";
+import certificationRouter from "./routers/certificationRouter";
 import globalRouter from "./routers/globalRouter";
 import "./passport";
 
@@ -18,6 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(routes.home, globalRouter);
-app.use(routes.auth, authRouter);
+app.use(routes.certi, certificationRouter);
 
 export default app;

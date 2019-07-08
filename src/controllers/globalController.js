@@ -4,23 +4,21 @@ import User from "../models/User";
 export const requestJoin = async (req, res) => {
   const { name, email } = req.body;
   try {
-    const user = await User.findOne({ email });
-    console.log(user);
+    const user = await User.find({ $or: [{ email }, { name }] });
     if (user) {
-      res.json({ message: "fail, already user email", status: 0 });
+      res.json({ message: "fail, already user name or email", status: 0, user });
     } else {
       const result = await User.create({
         name,
         email
       });
-      res.send('hi');
+      res.send({ message: "success", status: 1, result });
       // res.json({
       //   message: "success, add user info",
       //   status: 1,
       //   successData: result
       // });
     }
-    // res.send(await User.create({ name, email }));
   } catch (e) {
     console.log(e);
   }
