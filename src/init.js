@@ -4,7 +4,7 @@ import "./db";
 import app from "./app";
 
 import "./models/User";
-import "./models/Auth";
+import "./models/Certification";
 
 dotenv.config();
 

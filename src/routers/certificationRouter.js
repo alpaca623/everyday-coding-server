@@ -6,10 +6,10 @@ import {
   certificationCreate
 } from "../controllers/certificationController";
 
-const authRouter = express.Router();
+const certificationRouter = express.Router();
 
-authRouter.get(routes.home, certificationUsers);
-authRouter.get(routes.certi_detail, certificationDetail);
-authRouter.post(routes.certi_create, certificationCreate);
+certificationRouter.get(routes.home, certificationUsers);
+certificationRouter.get(routes.certi_detail, certificationDetail);
+certificationRouter.post(routes.certi_create, certificationCreate);
 
-export default authRouter;
+export default certificationRouter;
