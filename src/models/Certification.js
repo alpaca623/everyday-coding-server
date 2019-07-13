@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 const certificationSchema = mongoose.Schema({
-  auth_type: {
+  certification_type: {
     type: Number,
     default: 0,
     required: "type is required"
   },
-  auth_content: {
+  certification_content: {
     type: String,
     required: "data is required"
   },

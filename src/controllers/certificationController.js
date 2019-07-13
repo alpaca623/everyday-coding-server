@@ -5,14 +5,19 @@ import Certification from "../models/Certification";
 
 /**
  * 인증 생성
+ * 
+ * 변수 설명
+ * certification_content : 인증 내용
+ * certification_type : 인증 타입(ex) 깃허브 인증, 텍스트 인증 구분용도)
  */
 export const certificationCreate = async (req, res) => {
-  const { auth_type, auth_content } = req.body;
+  const { certification_content, certification_type } = req.body;
+  console.log(req.body);
   try {
     res.send(
       await Certification.create({
-        auth_type,
-        auth_content
+        certification_type,
+        certification_content
       })
     );
   } catch (e) {
@@ -21,12 +26,12 @@ export const certificationCreate = async (req, res) => {
 };
 
 /**
- * 오늘의 인증자 목록 요청
+ * 인증 리스트 요청
  * @param {} req 
  * @param {*} res 
  * @param {*} next 
  */
-export const certificationUsers = async (req, res, next) => {
+export const certificationList = async (req, res, next) => {
   try {
     // const data = await Auth.find({
     //   created_at: {
