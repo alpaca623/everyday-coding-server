@@ -1,4 +1,3 @@
-import passport from "passport";
 import User from "../models/User";
 
 export const requestJoin = async (req, res) => {
@@ -31,9 +30,4 @@ export const requestLogin = async (req, res) => {
   } catch (e) {
     console.log(e);
   }
-};
-
-export const requestKakaoLogin = passport.authenticate("kakao");
-export const postKakaoLogin = (req, res) => {
-  res.send(1);
 };

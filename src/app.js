@@ -7,7 +7,6 @@ import cors from "cors";
 import { routes } from "./routes";
 import certificationRouter from "./routers/certificationRouter";
 import globalRouter from "./routers/globalRouter";
-import "./passport";
 
 const app = express();
 
