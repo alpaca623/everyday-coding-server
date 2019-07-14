@@ -2,7 +2,7 @@
  * 인증 컨트롤러
  */
 import Certification from "../models/Certification";
-import { convertDateToString } from "../util";
+import { convertDateToString, todayString } from "../util";
 
 /**
  * 인증 생성
@@ -39,15 +39,34 @@ export const certificationList = async (req, res, next) => {
     /**
      * 매개변수로 날짜가 들어올 경우 날짜 검색을 해준다.
      */
-    if(s_date && e_date){
+    if (s_date && e_date) {
       data = await Certification.find({
         create_at: {
           $gte: convertDateToString(s_date),
-          $lt: convertDateToString(e_date),
+          $lt: convertDateToString(e_date)
         }
       });
-    }else{
-      data = await Certification.find({});
+    } else {
+      data = await Certification.find({
+        create_at: {
+          $gte: new Date(
+            todayString().year,
+            todayString().month,
+            todayString().date,
+            0,
+            0,
+            0
+          ),
+          $lt: new Date(
+            todayString().year,
+            todayString().month,
+            todayString().date,
+            23,
+            59,
+            59
+          )
+        }
+      });
     }
     res.send(data);
   } catch (e) {
